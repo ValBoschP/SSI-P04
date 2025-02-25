@@ -1,6 +1,6 @@
 project(${CMAKE_PROJECT_NAME})
 
-set(EXE_NAME "C/A_Generator")
+set(EXE_NAME "CA_Generator")
 
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.cc")
 list(REMOVE_ITEM SOURCES "main.cc")
