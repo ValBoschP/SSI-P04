@@ -26,8 +26,13 @@ void CAGenerator::ShifRegisters() {
 
 void CAGenerator::PrintTableHeader() {
   std::cout << "\nSalida:\n";
-  std::cout << "Paso | G1         | G2        | C/A PRN\n";
-  std::cout << "--------------------------------------\n";
+  std::cout << std::setw(5) << "Paso" << " | "
+            << "G1        " << " | "
+            << "Fb G1" << " | "
+            << "G2        " << " | "
+            << "Fb G2" << " | "
+            << "C/A" << "\n";
+  std::cout << "-----------------------------------------------------------\n";
 }
 
 void CAGenerator::PrintLSFRState(int step) {
@@ -40,14 +45,26 @@ void CAGenerator::PrintLSFRState(int step) {
 std::vector<int> CAGenerator::GenerateSequence(int length, bool show_table) {
   std::vector<int> sequence;
   auto [tap1, tap2] = GetTaps(satellite_id_);
+  
   if (show_table) PrintTableHeader();
+  
   for (int i = 0; i < length; ++i) {
+
+    int fb1 = g1_[2] ^ g1_[9];
+    int fb2 = g2_[1] ^ g2_[2] ^ g2_[5] ^ g2_[7] ^ g2_[8] ^ g2_[9];
+    
+
     int ca_bit = g1_[9] ^ (g2_[tap1 - 1] ^ g2_[tap2 - 1]);
     sequence.push_back(ca_bit);
+    
     if (show_table) {
-      PrintLSFRState(i);
-      std::cout << " | " << ca_bit << "\n";
+      std::cout << std::setw(5) << i << " | ";
+      for (int bit : g1_) std::cout << bit;
+      std::cout << " | " << fb1 << "   | ";
+      for (int bit : g2_) std::cout << bit;
+      std::cout << " | " << fb2 << "   | " << ca_bit << "\n";
     }
+    
     ShifRegisters();
   }
   return sequence;
