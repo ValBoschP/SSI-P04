@@ -12,6 +12,10 @@ extern std::unordered_map<int, std::pair<int, int>> prn_taps;
 
 class CAGenerator {
  public:
+  CAGenerator() {
+    g1_.fill(1);
+    g2_.fill(1);
+  }
   CAGenerator(const int& satellite_id) : satellite_id_(satellite_id) {
     g1_.fill(1);
     g2_.fill(1);
@@ -19,6 +23,9 @@ class CAGenerator {
   
   std::vector<int> GenerateSequence(int length, bool show_table = false);
   void ShifRegisters();
+  std::pair<int, int> GetRandomTapsFromPRN();
+  // Modificacion
+  std::vector<int> GenerateSequenceRandom(int length, bool show_table);
 
   int GetSatelliteID() { return satellite_id_; }
   std::array <int, 10> GetG1() { return g1_; }

@@ -1,6 +1,7 @@
 src/CMakeFiles/CA_Generator.dir/utils.cc.o: \
- /home/valer/SSI/SSI-P04/src/utils.cc /usr/include/stdc-predef.h \
- /home/valer/SSI/SSI-P04/include/CA_generator.h \
+ /home/valeria/repos/Clases/SSI/SSI-P04/src/utils.cc \
+ /usr/include/stdc-predef.h \
+ /home/valeria/repos/Clases/SSI/SSI-P04/include/CA_generator.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -181,4 +182,4 @@ src/CMakeFiles/CA_Generator.dir/utils.cc.o: \
  /usr/include/c++/11/functional /usr/include/c++/11/bits/refwrap.h \
  /usr/include/c++/11/bits/std_function.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/valer/SSI/SSI-P04/include/utils.h
+ /home/valeria/repos/Clases/SSI/SSI-P04/include/utils.h

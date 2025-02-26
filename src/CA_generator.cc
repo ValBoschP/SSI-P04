@@ -1,6 +1,8 @@
 #include "CA_generator.h"
 #include "utils.h"
 
+#include <random>
+
 std::unordered_map<int, std::pair<int, int>> prn_taps = {
   {1, {2, 6}}, {2, {3, 7}}, {3, {4, 8}}, {4, {5, 9}}, {5, {1, 9}},
   {6, {2, 10}}, {7, {1, 8}}, {8, {2, 9}}, {9, {3, 10}}, {10, {2, 3}},
@@ -14,6 +16,50 @@ std::unordered_map<int, std::pair<int, int>> prn_taps = {
 std::pair<int, int> CAGenerator::GetTaps(int sat_id) {
   return prn_taps[sat_id];
 }
+
+// Modificacion
+std::pair<int, int> CAGenerator::GetRandomTapsFromPRN() {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<int> dist(1, 32);
+  int random_sat_id = dist(gen);
+  return prn_taps[random_sat_id];
+}
+
+std::vector<int> CAGenerator::GenerateSequenceRandom(int length, bool show_table) {
+  std::vector<int> sequence;
+  auto [tap1, tap2] = GetTaps(satellite_id_);
+  
+  if (show_table) PrintTableHeader();
+  
+  for (int i = 0; i < length; ++i) {
+
+    int fb1 = g1_[2] ^ g1_[9];
+    int fb2 = g2_[1] ^ g2_[2] ^ g2_[5] ^ g2_[7] ^ g2_[8] ^ g2_[9];
+    
+    std::array<int, 10> random_order = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::shuffle(random_order.begin(), random_order.end(), gen);
+    int tap1 = random_order[0];
+    int tap2 = random_order[1];
+    int ca_bit = g1_[9] ^ (g2_[tap1] ^ g2_[tap2]);
+
+    sequence.push_back(ca_bit);
+    
+    if (show_table) {
+      std::cout << std::setw(5) << i << " | ";
+      for (int bit : g1_) std::cout << bit;
+      std::cout << " | " << fb1 << "   | ";
+      for (int bit : g2_) std::cout << bit;
+      std::cout << " | " << fb2 << "   | " << ca_bit << "\n";
+    }
+    
+    ShifRegisters();
+  }
+  return sequence;
+}
+
 
 void CAGenerator::ShifRegisters() {
   int new_g1 = g1_[2] ^ g1_[9];
@@ -53,7 +99,7 @@ std::vector<int> CAGenerator::GenerateSequence(int length, bool show_table) {
     int fb1 = g1_[2] ^ g1_[9];
     int fb2 = g2_[1] ^ g2_[2] ^ g2_[5] ^ g2_[7] ^ g2_[8] ^ g2_[9];
     
-
+    
     int ca_bit = g1_[9] ^ (g2_[tap1 - 1] ^ g2_[tap2 - 1]);
     sequence.push_back(ca_bit);
     

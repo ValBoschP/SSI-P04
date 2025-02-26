@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/valer/SSI/SSI-P04/src/CA_generator.cc" "src/CMakeFiles/CA_Generator.dir/CA_generator.cc.o" "gcc" "src/CMakeFiles/CA_Generator.dir/CA_generator.cc.o.d"
-  "/home/valer/SSI/SSI-P04/src/main.cc" "src/CMakeFiles/CA_Generator.dir/main.cc.o" "gcc" "src/CMakeFiles/CA_Generator.dir/main.cc.o.d"
-  "/home/valer/SSI/SSI-P04/src/utils.cc" "src/CMakeFiles/CA_Generator.dir/utils.cc.o" "gcc" "src/CMakeFiles/CA_Generator.dir/utils.cc.o.d"
+  "/home/valeria/repos/Clases/SSI/SSI-P04/src/CA_generator.cc" "src/CMakeFiles/CA_Generator.dir/CA_generator.cc.o" "gcc" "src/CMakeFiles/CA_Generator.dir/CA_generator.cc.o.d"
+  "/home/valeria/repos/Clases/SSI/SSI-P04/src/main.cc" "src/CMakeFiles/CA_Generator.dir/main.cc.o" "gcc" "src/CMakeFiles/CA_Generator.dir/main.cc.o.d"
+  "/home/valeria/repos/Clases/SSI/SSI-P04/src/utils.cc" "src/CMakeFiles/CA_Generator.dir/utils.cc.o" "gcc" "src/CMakeFiles/CA_Generator.dir/utils.cc.o.d"
   )
 
 # Targets to which this target links.

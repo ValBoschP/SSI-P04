@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DCA_Generator_EXPORTS
 
-CXX_INCLUDES = -I/home/valer/SSI/SSI-P04/src/. -I/home/valer/SSI/SSI-P04/include
+CXX_INCLUDES = -I/home/valeria/repos/Clases/SSI/SSI-P04/src/. -I/home/valeria/repos/Clases/SSI/SSI-P04/include
 
 CXX_FLAGS = -g
 

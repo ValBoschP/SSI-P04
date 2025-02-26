@@ -1,6 +1,8 @@
 src/CMakeFiles/CA_Generator.dir/main.cc.o: \
- /home/valer/SSI/SSI-P04/src/main.cc /usr/include/stdc-predef.h \
- /home/valer/SSI/SSI-P04/include/utils.h /usr/include/c++/11/iostream \
+ /home/valeria/repos/Clases/SSI/SSI-P04/src/main.cc \
+ /usr/include/stdc-predef.h \
+ /home/valeria/repos/Clases/SSI/SSI-P04/include/utils.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
